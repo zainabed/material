@@ -6,13 +6,13 @@ pipeline {
     stage('install') {
       steps {
         git 'https://github.com/zainabed/java-quick-start.git'
-        npm install
+        bat 'npm install'
       }
     }
 
     stage('validate') {
       steps {
-        karma start
+        bat 'karma start'
       }
     }
   }
