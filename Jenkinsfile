@@ -5,7 +5,7 @@ pipeline {
 
     stage('Checkout') {
       steps {
-        git 'https://github.com/zainabed/java-quick-start.git'
+        git 'https://github.com/zainabed/material.git'
       }
     }
 
