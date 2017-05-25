@@ -3,11 +3,13 @@ pipeline {
 
   stages {
 
-    stage('install') {
+    stage('Checkout') {
       steps {
         git 'https://github.com/zainabed/java-quick-start.git'
       }
+    }
 
+    stage("Install") {
       steps {
         bat 'npm install'
       }
