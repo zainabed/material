@@ -6,7 +6,7 @@ angular.module('z-test')
   }
 
   Profile.prototype.setFirstName = function(firstName){
-    this.firstName = firstName;
+    this.firstName = firstName ? firstName : this.userObj.getName();
   }
 
   Profile.prototype.getFirstName = function(){
@@ -14,7 +14,7 @@ angular.module('z-test')
   }
 
   Profile.prototype.setLastName = function(lastName) {
-    this.lastName = lastName;
+    this.lastName = lastName  ? lastName : this.userObj.getName();
   }
 
   Profile.prototype.getLastName = function(){

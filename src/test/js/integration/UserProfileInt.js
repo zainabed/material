@@ -4,17 +4,36 @@ describe('Integration test for User and Profile class', function(){
     module('z-test');
   });
 
-  var User = null;
-  var Profile = null;
+  var UserFactory = null;
+  var userOjb = null;
+  var profileObj = null;
   var ProfileFactory = null;
 
   beforeEach(
-    inject(function(_User_, _ProfileFactory_){
-      User = _User_;
+    inject(function(_UserFactory_, _ProfileFactory_){
+      UserFactory = _UserFactory_;
       ProfileFactory = _ProfileFactory_;
     })
   );
 
+  beforeEach(function(){
+    userOjb = UserFactory.create();
+    userOjb.setName('zainabed');
+    profileObj = ProfileFactory.create(userOjb);
 
+
+  });
+
+  afterEach(function(){
+    userOjb = UserFactory = profileObj = ProfileFactory = null;
+  });
+
+  it('If firstName and lastName is not set for Profile then it get added by User object', function(){
+    profileObj.setFirstName();
+    expect(profileObj.getFirstName()).toEqual(userOjb.getName());
+
+    profileObj.setLastName();
+    expect(profileObj.getLastName()).toEqual(userOjb.getName());
+  });
 
 });
