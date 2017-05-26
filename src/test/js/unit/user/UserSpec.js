@@ -7,7 +7,7 @@ describe('Testing User module', function(){
 
   beforeEach(
     inject(function(_User_){
-        User = _User_;
+        User = new _User_();
     })
   );
 
@@ -32,4 +32,6 @@ describe('Testing User module', function(){
     User.setName(testName);
     expect(User.getName()).toEqual(testName);
   });
+
+
 });
