@@ -19,6 +19,7 @@ describe('Integration test for User and Profile class', function(){
   beforeEach(function(){
     userOjb = UserFactory.create();
     userOjb.setName('zainabed');
+    userOjb.setUserId(1234);
     profileObj = ProfileFactory.create(userOjb);
 
 
@@ -36,4 +37,8 @@ describe('Integration test for User and Profile class', function(){
     expect(profileObj.getLastName()).toEqual(userOjb.getName());
   });
 
+  it('User object id and Profile user id should be same', function(){
+    profileObj.setUserId();
+    expect(profileObj.getUserId()).toEqual(userOjb.getUserId());
+  });
 });
