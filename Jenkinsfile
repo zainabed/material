@@ -18,7 +18,7 @@ pipeline {
     stage('validate') {
       steps {
         bat 'karma start'
-        bar 'karma start --testType=integration'
+        bat 'karma start --testType=integration'
       }
     }
   }
