@@ -11,7 +11,7 @@ var testFiles = [
 
 
 if(args.testType === 'integration'){
-  testFiles.push('src/test/js/Integration/**/*Int.js')
+  testFiles.push('src/test/js/integration/**/*Int.js')
 }
 else {
   testFiles.push('src/test/js/unit/**/*Spec.js')
