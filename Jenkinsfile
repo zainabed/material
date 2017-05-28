@@ -17,8 +17,8 @@ pipeline {
 
     stage('validate') {
       steps {
-        sh 'node_modules/karma-cli/bin/karma start start'
-        sh 'node_modules/karma-cli/bin/karma start start --testType=integration'
+        sh 'node_modules/karma-cli/bin/karma start'
+        sh 'node_modules/karma-cli/bin/karma start --testType=integration'
       }
     }
   }
