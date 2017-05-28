@@ -11,13 +11,14 @@ pipeline {
 
     stage("Install") {
       steps {
-        bat 'npm install'
+        sh 'npm install'
       }
     }
 
     stage('validate') {
       steps {
-        bat 'karma start'
+        sh 'node_modules/karma-cli/bin/karma start'
+        sh 'node_modules/karma-cli/bin/karma start --testType=integration'
       }
     }
   }

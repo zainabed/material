@@ -1,5 +1,22 @@
 // Karma configuration
 // Generated on Thu May 25 2017 15:11:52 GMT+0530 (India Standard Time)
+var args = require('yargs').argv;
+
+var testFiles = [
+  { pattern: 'node_modules/angular/angular.js', watched: false },
+  { pattern: 'node_modules/angular-mocks/angular-mocks.js', watched: false},
+  'src/main/js/**/*.js',
+  { pattern: 'src/main/index.html', include: false, served: false},
+];
+
+
+if(args.testType === 'integration'){
+  testFiles.push('src/test/js/integration/**/*Int.js')
+}
+else {
+  testFiles.push('src/test/js/unit/**/*Spec.js')
+}
+
 
 module.exports = function(config) {
   config.set({
@@ -14,15 +31,7 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: [
-      { pattern: 'node_modules/angular/angular.js', watched: false },
-      { pattern: 'node_modules/angular-mocks/angular-mocks.js', watched: false},
-      'src/main/js/**/*.js',
-      'src/test/js/unit/**/*Spec.js',
-
-      { pattern: 'src/main/index.html', include: false, served: false},
-
-    ],
+    files: testFiles,
 
 
     // list of files to exclude
@@ -82,12 +91,12 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true,
+    singleRun: args.singleRun === 'false' ? false : true,
 
     // Concurrency level
     // how many browser should be started simultaneous
